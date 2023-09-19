@@ -1,8 +1,10 @@
 const express = require('express');
 const router = express.Router();
+const Crypto = require('../models/crypto');
 
 router.get('/', (req, res) => {
-    res.json('hello')
+    Crypto.find()
+    .then(data => res.json(data))
 });
 
 module.exports = router;
