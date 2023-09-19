@@ -1,12 +1,14 @@
 const express = require('express');
 const mongoose = require('mongoose');
-require('dotenv').config()
+require('dotenv').config();
+const cors = require('cors');
 
 mongoose.connect(process.env.MONGODV_URL)
 .then(() => console.log('connected to database!'))
 .catch((err) => console.log('database error', err));
 
 const app = express();
+app.use(cors())
 
 const dataApi = require('./routes/data');
 app.use('/', dataApi);
