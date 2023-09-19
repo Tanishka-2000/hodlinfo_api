@@ -13,7 +13,9 @@ app.use(cors())
 const dataApi = require('./routes/data');
 app.use('/', dataApi);
 
-app.listen(4000, () => console.log('Server connected'))
+const port = process.env.PORT || 4000
+
+app.listen(port, () => console.log('Server connected'))
 
 // to do
 // 0. install dotenv and store mongodb url 
